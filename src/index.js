@@ -47,7 +47,7 @@ class dateObj {
         return this._date.getSeconds()
     }
     
-    format = (mask) => {
+    formatArray = (mask) => {
         const fobj = {
             'Y': this.year,
             'y': this.yr,
@@ -71,18 +71,32 @@ class dateObj {
         return newArr.join('')
     }
 
+    when = () => {
+        const now = new Date()
+        if(this._date > now) {
+            const dif = this._date - now
+            const years = parseInt((dif / 1000 / 60 / 60 / 24 / 365).toString())
+            return `${years} years from now`
+        } else {
+            const dif = now - this._date
+            const years = parseInt((dif / 1000 / 60 / 60 / 24 / 365).toString().slice(0,3))
+            return `${years} years ago`
+        }
+    }
+
 }
 
-const myBirthday = new dateObj('1998', '10', '14')
+const myBirthday = new dateObj('3998', '10', '14')
 // console.log( myBirthday._date.getDay() )
 // console.log( myBirthday._date.getFullYear() )
-console.log( myBirthday.year)
-console.log( myBirthday.yr)
+// console.log( myBirthday.year)
+// console.log( myBirthday.yr)
 // console.log( myBirthday.date)
-console.log( myBirthday.month)
-console.log( myBirthday.mon)
-console.log( myBirthday.day)
-console.log( myBirthday.dy)
+// console.log( myBirthday.month)
+// console.log( myBirthday.mon)
+// console.log( myBirthday.day)
+// console.log( myBirthday.dy)
 // console.log( myBirthday.hours)
 // console.log( myBirthday.min)
-console.log(myBirthday.format('Y m, d' ))
+// console.log(myBirthday.formatArray('Y m, d' ))
+console.log(myBirthday.when())
