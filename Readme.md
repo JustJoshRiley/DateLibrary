@@ -27,13 +27,13 @@ Creates new date at epochs origin
 
 ## Calling methods
 1) Initialize a new dateObj ( const date = new dateObj() )
-    *a)* date.year --> gets full year
-    *b)* date.yr --> gets shortened year
-    *c)* date.month --> gets full month
-    *d)* date.mon --> gets shortened month
-    *e)* date.day --> gets full day
-    *f)* date.dy --> gets shortened day
-    *g)* date.hours --> gets hour of day ( is 0 unless specified in date object)
-    *h)* date.min --> gets minutes of day ( is 0 unless specified in date object)
-    *i)* date.formatArray --> formats array of your chosen format
-    *j)* date.when --> tells how long ago, or ahead date object is compared to current time.
+    * date.year --> gets full year
+    * date.yr --> gets shortened year
+    * date.month --> gets full month
+    * date.mon --> gets shortened month
+    * date.day --> gets full day
+    * date.dy --> gets shortened day
+    * date.hours --> gets hour of day ( is 0 unless specified in date object)
+    * date.min --> gets minutes of day ( is 0 unless specified in date object)
+    * date.formatArray --> formats array of your chosen format
+    * date.when --> tells how long ago, or ahead date object is compared to current time.
