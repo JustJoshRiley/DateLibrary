@@ -169,6 +169,7 @@ class dateObj {
 }
 
 // const myBirthday = new dateObj('1998', '10', '14', 11, 58)
+const myBirthday = new dateObj(0)
 // console.log( myBirthday._date.getDay() )
 // console.log( myBirthday._date.getFullYear() )
 // console.log( myBirthday.year)
@@ -179,7 +180,7 @@ class dateObj {
 // console.log( myBirthday.dy)
 // console.log( myBirthday.hours)
 // console.log( myBirthday.min)
-// console.log(myBirthday.formatArray('Y m, d' ))
+console.log(myBirthday.formatArray('Y m, d' ))
 // console.log(myBirthday.when())
 
 module.exports.dateObj = dateObj;
