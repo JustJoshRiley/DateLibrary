@@ -75,23 +75,55 @@ class dateObj {
         const now = new Date()
         if(this._date > now) {
             const dif = this._date - now
-            const years = parseInt((dif / 1000 / 60 / 60 / 24 / 365).toString())
-            return `${years} years from now`
+            const years = Math.ceil(dif / 1000 / 60 / 60 / 24 / 365)
+            if(years > 1) {
+                return `${years} years from now`
+            } else if (this._date.getFullYear() === now.getFullYear()) {
+                const months = (this._date.getMonth() - now.getMonth())
+                if (months >= 1) {
+                    return `${months} months from now`
+                } else {
+                    const days = Math.ceil((dif / 1000 / 60 / 60 / 24))
+                    console.log(days)
+                    if (days < 1) {
+                        const seconds = parseInt((dif / 1000))
+                        return `congrats, its basically today`
+                    } else {
+                        return `${days} days from now`
+                    }
+                }
+            }
+            
         } else {
             const dif = now - this._date
-            const years = parseInt((dif / 1000 / 60 / 60 / 24 / 365).toString().slice(0,3))
-            return `${years} years ago`
+            const years = Math.floor(dif / 1000 / 60 / 60 / 24 / 365)
+            if(years > 1) {
+                return `${years} years ago`
+            } else if (this._date.getFullYear() === now.getFullYear()) {
+                const months = (this._date.getMonth() - now.getMonth())
+                if (months >= 1) {
+                    return `${months} months ago`
+                } else {
+                    const days = Math.ceil((dif / 1000 / 60 / 60 / 24))
+                    console.log(days)
+                    if (days < 1) {
+                        const seconds = parseInt((dif / 1000))
+                        return `congrats, its basically today`
+                    } else {
+                        return `${days} days ago`
+                    }
+                }
+            }
         }
     }
 
 }
 
-const myBirthday = new dateObj('3998', '10', '14')
+const myBirthday = new dateObj('1998', '10', '14', 11, 58)
 // console.log( myBirthday._date.getDay() )
 // console.log( myBirthday._date.getFullYear() )
 // console.log( myBirthday.year)
 // console.log( myBirthday.yr)
-// console.log( myBirthday.date)
 // console.log( myBirthday.month)
 // console.log( myBirthday.mon)
 // console.log( myBirthday.day)
@@ -100,3 +132,5 @@ const myBirthday = new dateObj('3998', '10', '14')
 // console.log( myBirthday.min)
 // console.log(myBirthday.formatArray('Y m, d' ))
 console.log(myBirthday.when())
+
+module.exports.dateObj = dateObj;
