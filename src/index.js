@@ -8,45 +8,90 @@ class dateObj {
         this._date = new Date(...args)
     }
     // Year
+    /** 
+     * get year returns full year of the date obj
+    * @param {} input none
+    * @returns {number} the full year of the dateobj
+    */
     get year() {
         return this._date.getFullYear()
     }
+    /** 
+     * get yr returns shortned year of the date obj
+    * @param {} input none
+    * @returns {number} the short year (last two digits) of the dateobj
+    */
     get yr() {
         // return parseInt(this._date.getFullYear().toString().slice(2))
         return this.year % 100
     }
 
     // Month
+    /** 
+     * get month returns the month(string) of the dateobj
+    * @param {} input none
+    * @returns {string} the month of the dateobj
+    */
     get month() {
         return months[this._date.getMonth()]
     }
+    /** 
+     * get mon returns the month(shortened string) of the dateobj
+    * @param {} input none
+    * @returns {string} the short month (first three letters) of the dateobj
+    */
     get mon() {
         return mon[this._date.getMonth()]
     }
 
     // Day
+    /** 
+     * get day returns the day(string) of the dateobj
+    * @param {} input none
+    * @returns {string} the day of the week of the dateobj
+    */
     get day() {
         return days[this._date.getDay()]
     }
+    /** 
+     * get dy returns the day(shortened string) of the dateobj
+    * @param {} input none
+    * @returns {string} the short day (first three letters) of the week of the dateobj
+    */
     get dy() {
         return dy[this._date.getDay()]
     }
 
-    get date() {
-        return this._date.getDate()
-    }
-
-
+    /** 
+     * get hours returns the hour of the dateobj
+    * @param {} input none
+    * @returns {string} the hour of the dateobj occurence
+    */
     get hours() {
         return this._date.getHours()
     }
+    /** 
+     * get min returns the minutes of the dateobj
+    * @param {} input none
+    * @returns {string} the minutes of the dateobj occurence
+    */
     get min() {
         return this._date.getMinutes()
     }
+    /** 
+     * get secs returns the seconds of the dateobj
+    * @param {} input none
+    * @returns {string} the seconds of the dateobj occurence
+    */
     get secs() {
         return this._date.getSeconds()
     }
     
+    /** 
+     * function formatArray returns a formatted date of how you want the date to be formatted
+    * @param {string} input string
+    * @returns {string} the format of the date determined by the input
+    */
     formatArray = (mask) => {
         const fobj = {
             'Y': this.year,
@@ -71,6 +116,11 @@ class dateObj {
         return newArr.join('')
     }
 
+    /** 
+     * function when returns when a date occured compared to the current time(new dateobj)
+    * @param {} input none
+    * @returns {string} how long before or after the current date the dateObj occured
+    */
     when = () => {
         const now = new Date()
         if(this._date > now) {
@@ -116,10 +166,9 @@ class dateObj {
             }
         }
     }
-
 }
 
-const myBirthday = new dateObj('1998', '10', '14', 11, 58)
+// const myBirthday = new dateObj('1998', '10', '14', 11, 58)
 // console.log( myBirthday._date.getDay() )
 // console.log( myBirthday._date.getFullYear() )
 // console.log( myBirthday.year)
@@ -131,6 +180,6 @@ const myBirthday = new dateObj('1998', '10', '14', 11, 58)
 // console.log( myBirthday.hours)
 // console.log( myBirthday.min)
 // console.log(myBirthday.formatArray('Y m, d' ))
-console.log(myBirthday.when())
+// console.log(myBirthday.when())
 
 module.exports.dateObj = dateObj;
